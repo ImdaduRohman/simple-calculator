@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CiDark, CiLight } from "react-icons/ci";
+import { FiDelete } from "react-icons/fi";
 import './App.css'
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='min-h-screen bg-[#ffffdd]'>
       <div className='bg-[#fff0d2] p-4 border-b-[4px] border-[#483e2e]'>
         <div>
           <input 
@@ -33,6 +34,14 @@ function App() {
           <div className='text-[#938c82] text-2xl text-end font-semibold'>45 X 24</div>
           <div className='text-[#483e2e] text-6xl text-end font-bold'>1080</div>
         </div>
+      </div>
+      <div className='p-4'>
+        <div className='flex justify-end'>
+          <button>
+            <FiDelete className='h-10 w-10 text-[#f1af60]'/>
+          </button>
+        </div>
+        <div></div>
       </div>
     </div>
   )
