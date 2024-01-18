@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <div className='bg-[#fff0d2] p-4'>
+      <div className='bg-[#fff0d2] p-4 border-b-[4px] border-[#483e2e]'>
         <div>
           <input 
             type='checkbox' 
@@ -29,9 +29,9 @@ function App() {
             </div>
           </label>
         </div>
-        <div>
-          <div>Input</div>
-          <div>Result</div>
+        <div className='mt-10 mr-2'>
+          <div className='text-[#938c82] text-2xl text-end font-semibold'>45 X 24</div>
+          <div className='text-[#483e2e] text-6xl text-end font-bold'>1080</div>
         </div>
       </div>
     </div>
