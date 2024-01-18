@@ -5,3 +5,9 @@
 #toggle-dark-mode:checked ~ label div.toggle-circle {
   @apply translate-x-6;
 }
+
+.button-light {
+  box-shadow: 8px 8px 20px 0px rgba(137, 137, 137, 0.25);
+  box-shadow: -3px -3px 4px 0px rgba(255, 255, 255, 0.25) inset;
+  box-shadow: -7px -8px 20px 0px rgba(255, 255, 255, 1);
+}
