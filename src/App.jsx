@@ -87,7 +87,7 @@ function App() {
           <button onClick={handleClick} name='.' className={`${!toggleDarkMode ? 'button-light' : 'button-dark'} dark:text-white`}>.</button>
           <button onClick={calculate} className={`${!toggleDarkMode ? 'button-light' : 'button-dark'} text-[#9ABD0E]`}>=</button>
         </div>
-        <div className='text-gray-400 text-xs dark:font-medium mt-5 flex-col items-center justify-center p-1 md:p-1 rounded-full'>
+        <div className='text-gray-400 text-xs mt-5 flex-col items-center justify-center p-1 md:p-1 rounded-full'>
           <div className="text-center">
             <a 
               href="https://www.linkedin.com/in/imdadu-rohman-462739242/" 
