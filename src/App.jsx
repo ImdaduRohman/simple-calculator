@@ -8,7 +8,7 @@ function App() {
 
   const handleClick = (e) => {
     if(result.length >=16){
-      setResult("!So Much Big Input");
+      setResult("So Much Big Input!");
       return;
     }
     if (result.charAt(0) === '0') {
@@ -63,7 +63,7 @@ function App() {
       </div>
       <div className='p-4 pb-5 md:pb-2 absolute bottom-0 w-full z-10'>
         <div className='mb-10 mr-2 border-b-[0.5px] border-gray-300 dark:border-gray-600 pb-3'>
-          <div className='dark:text-[#edecea] text-[60px] leading-[71px] text-end font-semibold'>{result}</div>
+          <div className={`dark:text-[#edecea] leading-[71px] text-end font-semibold ${result.length < 9 ? 'text-[60px]' : result.length >= 9 && result.length < 13 ? 'text-[40px]' : 'text-[30px]' }`}>{result}</div>
         </div>
         <div className='grid grid-cols-4 gap-5'>
           <button onClick={clear} className={`text-[#7E83FF] col-span-2 ${!toggleDarkMode ? 'button-light' : 'button-dark'}`}>CLEAR</button>
