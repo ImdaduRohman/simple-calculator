@@ -92,8 +92,8 @@ function App() {
           )}
         </button>
       </div>
-      <div className='p-4 pb-5 md:pb-2 absolute bottom-0 w-full z-10'>
-        <div className='mb-10 mr-2 border-b-[0.5px] border-gray-300 dark:border-gray-600 pb-3'>
+      <div className='p-4 pb-5 md:pb-2 absolute bottom-0 md:top-0 w-full z-10'>
+        <div className='mb-10 md:mb-3 mr-2 border-b-[0.5px] border-gray-300 dark:border-gray-600 pb-3'>
           <div className={`dark:text-[#edecea] leading-[71px] text-end font-semibold ${result.length < 9 ? 'text-[60px]' : result.length >= 9 && result.length < 13 ? 'text-[40px]' : 'text-[30px]' }`}>{result}</div>
         </div>
         <div className='grid grid-cols-4 gap-5'>
