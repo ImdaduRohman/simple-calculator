@@ -1,4 +1,3 @@
-import { CiDark, CiLight } from "react-icons/ci";
 import { RiCopyrightLine, RiDeleteBack2Line } from "react-icons/ri";
 import { useState } from 'react';
 import './App.css'
@@ -58,28 +57,12 @@ function App() {
   return (
     <div className='bg-[#F3F2F2] dark:bg-[#283345] relative min-h-screen'>
       <div className='flex items-center gap-4 p-4 absolute top-0 z-20'>
-        {/* <div onClick={handleToggleDarkMode}className={`w-8 h-8 rounded-full toggle-circle flex justify-center items-center ${!toggleDarkMode ? 'bg-black' : 'bg-white'}`}>
-          {!toggleDarkMode ? <CiLight className='text-white font-medium' size={22}/> : <CiDark className='text-black font-medium' size={25} />}
-        </div> */}
-        <input 
-          type='checkbox' 
-          id='toggle-dark-mode' 
-          className='hidden'
-          checked={toggleDarkMode || ''}
-          value={toggleDarkMode || ''}
-          onChange={handleToggleDarkMode}
-        />
-        <label htmlFor='toggle-dark-mode'>
-          <div className={`w-[78px] h-9 rounded-full cursor-pointer flex items-center ${!toggleDarkMode ? 'label-light' : 'label-dark'}`}>
-            <div className={`w-7 h-7 rounded-full toggle-circle flex justify-center items-center ml-[5px] ${!toggleDarkMode ? 'bg-white' : 'bg-black'}`}>
-              {!toggleDarkMode ? <CiLight className='text-black font-medium' size={22}/> : <CiDark className='text-white font-medium' size={25}/>}
-            </div>
-          </div>
-        </label>
-        <div className='text-[#8c9298]'>Switch to {toggleDarkMode ? 'Light' : 'Dark'}</div>
+        <div onClick={handleToggleDarkMode}>
+          {!toggleDarkMode ? <img src="/dark-logo.svg" alt="dark-logo"/> : <img src="/light-logo.svg" alt="dark-logo"/>}
+        </div>
       </div>
-      <div className='p-4 pb-5 absolute bottom-0 w-full z-10'>
-        <div className='mb-10 mr-2 border-b-[0.5px] border-gray-300 dark:border-[#fdfdfd] pb-3'>
+      <div className='p-4 pb-5 md:pb-2 absolute bottom-0 w-full z-10'>
+        <div className='mb-10 mr-2 border-b-[0.5px] border-gray-300 dark:border-gray-600 pb-3'>
           <div className='dark:text-[#edecea] text-[60px] leading-[71px] text-end font-semibold'>{result}</div>
         </div>
         <div className='grid grid-cols-4 gap-5'>
@@ -104,26 +87,30 @@ function App() {
           <button onClick={handleClick} name='.' className={`${!toggleDarkMode ? 'button-light' : 'button-dark'} dark:text-white`}>.</button>
           <button onClick={calculate} className={`${!toggleDarkMode ? 'button-light' : 'button-dark'} text-[#9ABD0E]`}>=</button>
         </div>
-        <div className='text-white dark:text-black bg-black dark:bg-white dark:font-medium mt-5 flex items-center justify-center p-1 md:p-1 rounded-full'>
-          <RiCopyrightLine className="mr-[2px]"/>
-          2024
-          <a 
-            href="https://www.linkedin.com/in/imdadu-rohman-462739242/" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="mx-[2px]"
-          >
-            Imdadu
-          </a>
-          ||
-          <a 
-            href="https://www.linkedin.com/in/mustofawisnudhamara/" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="ml-[2px]"
-          >
-            Designed by Mustofa
-          </a>
+        <div className='text-gray-400 text-xs dark:font-medium mt-5 flex-col items-center justify-center p-1 md:p-1 rounded-full'>
+          <div className="text-center">
+            <a 
+              href="https://www.linkedin.com/in/imdadu-rohman-462739242/" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="mx-[2px]"
+            >
+              developed by <span className="text-[#7E83FF]">Imdadu R</span>,
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/mustofawisnudhamara/" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="ml-[2px]"
+            >
+              designed by <span className="text-[#7E83FF]">Mustofa W. D</span>
+            </a>
+          </div>
+          <div className='flex justify-center items-center'>
+            Copyright
+            <RiCopyrightLine className="mr-[2px]"/>
+            2024
+          </div>
         </div>
       </div>
     </div>
