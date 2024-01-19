@@ -1,6 +1,6 @@
 import { CiDark, CiLight } from "react-icons/ci";
+import { RiCopyrightLine, RiDeleteBack2Line } from "react-icons/ri";
 import { useState } from 'react';
-import { RiDeleteBack2Line } from "react-icons/ri";
 import './App.css'
 
 function App() {
@@ -16,18 +16,18 @@ function App() {
       result = result.slice(1, result.length)
     }
     setResult(result.concat(e.target.name));
-  }
+  };
 
   const clear = () => {
     setResult("0");
-  }
+  };
   const backSpace = () => {
     if(result.length === 1) {
       setResult("0")
     } else {
       setResult(result.slice(0, result.length - 1))
     }
-  }
+  };
 
   const calculate = () => {
     try {
@@ -42,7 +42,7 @@ function App() {
     } catch (err) {
       setResult("Error");
     }
-  }
+  };
 
   const handleToggleDarkMode = () => {
     if(toggleDarkMode === false) {
@@ -53,9 +53,8 @@ function App() {
       document.documentElement.classList.remove('dark')
     }
     setToggleDarkMode(!toggleDarkMode);
-  }
+  };
 
-  // bg-[#ffffdd] 
   return (
     <div className='bg-[#F3F2F2] dark:bg-[#283345] relative min-h-screen'>
       <div className='flex items-center gap-4 p-4 absolute top-0 z-20'>
@@ -79,7 +78,7 @@ function App() {
         </label>
         <div className='text-[#8c9298]'>Switch to {toggleDarkMode ? 'Light' : 'Dark'}</div>
       </div>
-      <div className='p-4 pb-10 absolute bottom-0 w-full z-10'>
+      <div className='p-4 pb-5 absolute bottom-0 w-full z-10'>
         <div className='mb-10 mr-2 border-b-[0.5px] border-gray-300 dark:border-[#fdfdfd] pb-3'>
           <div className='dark:text-[#edecea] text-[60px] leading-[71px] text-end font-semibold'>{result}</div>
         </div>
@@ -104,6 +103,27 @@ function App() {
           <button onClick={handleClick} name='0' className={`${!toggleDarkMode ? 'button-light' : 'button-dark'} dark:text-white col-span-2`}>0</button>
           <button onClick={handleClick} name='.' className={`${!toggleDarkMode ? 'button-light' : 'button-dark'} dark:text-white`}>.</button>
           <button onClick={calculate} className={`${!toggleDarkMode ? 'button-light' : 'button-dark'} text-[#9ABD0E]`}>=</button>
+        </div>
+        <div className='text-white dark:text-black bg-black dark:bg-white dark:font-medium mt-5 flex items-center justify-center p-1 md:p-1 rounded-full'>
+          <RiCopyrightLine className="mr-[2px]"/>
+          2024
+          <a 
+            href="https://www.linkedin.com/in/imdadu-rohman-462739242/" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="mx-[2px]"
+          >
+            Imdadu
+          </a>
+          ||
+          <a 
+            href="https://www.linkedin.com/in/mustofawisnudhamara/" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="ml-[2px]"
+          >
+            Designed by Mustofa
+          </a>
         </div>
       </div>
     </div>
