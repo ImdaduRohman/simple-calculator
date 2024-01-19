@@ -1,12 +1,17 @@
 import { RiCopyrightLine, RiDeleteBack2Line } from "react-icons/ri";
 import { useState } from 'react';
+import sound from './assets/press-sound.wav'
 import './App.css'
 
 function App() {
   const [toggleDarkMode, setToggleDarkMode] = useState(false);
+  const [toggleSound, setToggleSound] = useState(true);
   let [result, setResult] = useState("0");
 
   const handleClick = (e) => {
+    if(toggleSound) {
+      new Audio(sound).play();
+    }
     if(result.length >=16){
       setResult("So Much Big Input!");
       return;
@@ -18,9 +23,15 @@ function App() {
   };
 
   const clear = () => {
+    if(toggleSound) {
+      new Audio(sound).play();
+    }
     setResult("0");
   };
   const backSpace = () => {
+    if(toggleSound) {
+      new Audio(sound).play();
+    }
     if(result.length === 1) {
       setResult("0")
     } else {
@@ -29,6 +40,9 @@ function App() {
   };
 
   const calculate = () => {
+    if(toggleSound) {
+      new Audio(sound).play();
+    }
     try {
       result=eval(result).toString()
       if(result.includes('.')){
@@ -54,11 +68,22 @@ function App() {
     setToggleDarkMode(!toggleDarkMode);
   };
 
+  const handleToggleSound = () => {
+    setToggleSound(!toggleSound);
+  };
+
   return (
     <div className='bg-[#F3F2F2] dark:bg-[#283345] relative min-h-screen'>
-      <div className='flex items-center gap-4 p-4 absolute top-0 z-20'>
+      <div className='flex items-center gap-5 p-4 absolute top-0 z-20'>
         <button onClick={handleToggleDarkMode} className="active:scale-95">
           {!toggleDarkMode ? <img src="/dark-logo.svg" alt="dark-logo"/> : <img src="/light-logo.svg" alt="dark-logo"/>}
+        </button>
+        <button onClick={handleToggleSound} className="active:scale-95">
+          {!toggleSound ? (
+            <img src="/sound-silent.svg" alt="sound-active"/>
+          ) : (
+            <img src="/sound-active.svg" alt="sound-active"/>
+          )}
         </button>
       </div>
       <div className='p-4 pb-5 md:pb-2 absolute bottom-0 w-full z-10'>
