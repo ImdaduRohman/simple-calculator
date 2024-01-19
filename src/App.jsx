@@ -58,6 +58,9 @@ function App() {
   };
 
   const handleToggleDarkMode = () => {
+    if(toggleSound) {
+      new Audio(sound).play();
+    }
     if(toggleDarkMode === false) {
       // localStorage.setItem('dark', true)
       document.documentElement.classList.add('dark')
@@ -69,6 +72,9 @@ function App() {
   };
 
   const handleToggleSound = () => {
+    if(toggleSound) {
+      new Audio(sound).play();
+    }
     setToggleSound(!toggleSound);
   };
 
