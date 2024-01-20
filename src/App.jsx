@@ -16,10 +16,18 @@ function App() {
       setResult("So Much Big Input!");
       return;
     }
-    if (result.charAt(0) === '0') {
-      result = result.slice(1, result.length)
+    if(result.length === 1 && result.charAt(0) === '0') {
+      if(e.target.name === '.') {
+        setResult(result.concat(e.target.name));
+      } else if(e.target.name === '0') {
+        setResult('0')
+      } else{
+        result = result.slice(1, result.length)
+        setResult(result.concat(e.target.name));
+      }
+    } else {
+      setResult(result.concat(e.target.name));
     }
-    setResult(result.concat(e.target.name));
   };
 
   const clear = () => {
