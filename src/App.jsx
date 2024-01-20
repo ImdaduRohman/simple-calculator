@@ -83,6 +83,11 @@ function App() {
     if(toggleSound) {
       new Audio(sound).play();
     }
+    if(toggleSound === true) {
+      localStorage.setItem('sound', false)
+    } else {
+      localStorage.setItem('sound', true)
+    }
     setToggleSound(!toggleSound);
   };
 
@@ -102,6 +107,20 @@ function App() {
         document.documentElement.classList.remove('dark')
         setToggleDarkMode(true)
         localStorage.setItem('dark', false)
+        break;
+    }
+    switch (JSON.parse(window.localStorage.getItem('sound'))) {
+      case true:
+        setToggleSound(true)
+        localStorage.setItem('sound', true)
+        break;
+      case false:
+        setToggleSound(false)
+        localStorage.setItem('sound', false)
+        break;
+      default:
+        setToggleSound(true)
+        localStorage.setItem('sound', true)
         break;
     }
   }, [])
