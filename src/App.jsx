@@ -1,5 +1,5 @@
 import { RiCopyrightLine, RiDeleteBack2Line } from "react-icons/ri";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import sound from './assets/press-sound.wav'
 import './App.css'
 
@@ -70,10 +70,10 @@ function App() {
       new Audio(sound).play();
     }
     if(toggleDarkMode === false) {
-      // localStorage.setItem('dark', true)
+      localStorage.setItem('dark', true)
       document.documentElement.classList.add('dark')
     } else {
-      // localStorage.setItem('dark', false)
+      localStorage.setItem('dark', false)
       document.documentElement.classList.remove('dark')
     }
     setToggleDarkMode(!toggleDarkMode);
@@ -85,6 +85,26 @@ function App() {
     }
     setToggleSound(!toggleSound);
   };
+
+  useEffect(() => {
+    switch (JSON.parse(window.localStorage.getItem('dark'))) {
+      case true:
+        document.documentElement.classList.add('dark')
+        setToggleDarkMode(true)
+        localStorage.setItem('dark', true)
+        break;
+      case false:
+        document.documentElement.classList.remove('dark')
+        setToggleDarkMode(false)
+        localStorage.setItem('dark', false)
+        break;
+      default:
+        document.documentElement.classList.remove('dark')
+        setToggleDarkMode(true)
+        localStorage.setItem('dark', false)
+        break;
+    }
+  }, [])
 
   return (
     <div className='bg-[#F3F2F2] dark:bg-[#283345] relative min-h-screen'>
